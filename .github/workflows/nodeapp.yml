@@ -1,0 +1,25 @@
+name: nodeapp
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Lint Code
+        uses: github/super-linter@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_JAVASCRIPT_ES: true
