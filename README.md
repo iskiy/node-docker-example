@@ -15,11 +15,11 @@
     ``` 
     docker login
     ```
-5. Tag local image with Docker Hub repo iskiy/simple-node-app:v1   
+5. Tag local image with Docker Hub repo username/repo   
     ```
-   docker tag simple-node-app iskiy/simple-node-app:v1
+   docker tag simple-node-app username/repo
    ```
 6. Push image to Docker Hub  
    ```
-   docker push iskiy/simple-node-app:v1
+   docker push username/repo
    ```
